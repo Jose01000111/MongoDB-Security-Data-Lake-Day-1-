@@ -1,52 +1,99 @@
-# 🧠 MongoDB SOC Data Lake — Day 1: Environment Setup & Architecture Planning
-## ⚙️ My Goals
-Prepare my lab environment for the SOC Data Lake.
+# 🧠 MongoDB SOC Data Lake — 5-Phase Lab Project 
 
-Install and verify all necessary tools: MongoDB, Compass, mongosh, Python.
+Project Goal:
+I want to build a functional SOC data lake in MongoDB on Ubuntu that simulates how security analysts collect, store, correlate, and enrich log data. The goal is to design a professional data model demonstrating SOC workflows, threat intelligence, and data enrichment. This is meant to impress MongoDB leadership with Python-driven ingestion, enrichment, and correlation in a self-contained Ubuntu environment.
 
-Plan the data flow and architecture of my SOC Data Lake before ingesting any logs.
+Tools I’m Using:
 
-## 💻 What I Did
+### 🟢 MongoDB Community Edition on Ubuntu
 
-### 🖥️ Installed MongoDB locally on Ubuntu and confirmed it was running.
+### 🟢 MongoDB Compass
 
-### 📸 Screenshot: MongoDB service status — purpose: show database is operational
+### 🐍 Python 3 with pymongo
 
-### 🪟 Installed MongoDB Compass to access the database via GUI.
+### 📊 Sample security data from Wazuh, Sysmon, firewall logs, and threat intelligence feeds
 
-### 📸 Screenshot: Compass connected to local database — purpose: verify GUI access
+### 💻 Optional: VS Code or Jupyter Notebook
 
-### 🧩 Installed mongosh CLI for command-line interaction.
+## Phase 1 — Environment Setup & Planning ⚙️
 
-### 📸 Screenshot: Mongosh shell open — purpose: confirm CLI connection works
+What I Did:
+I installed MongoDB Community Edition on Ubuntu using apt commands, set up MongoDB to run as a service, and verified the connection with mongosh. I installed MongoDB Compass for GUI exploration and Python with pymongo for automation. I decided on my log sources: Sysmon logs for system activity, firewall logs for traffic, and Wazuh alerts for IDS data.
 
-### 🐍 Installed Python 3 and the pymongo library for future automation.
+Why:
+Setting up MongoDB locally ensures I understand installation, configuration, and connectivity on Ubuntu — critical for real-world deployments. Planning my architecture ensures that my data model will handle multiple security sources efficiently.
 
-### 📸 Screenshot: Python version and pymongo installed — purpose: verify tools for scripting
+📸 Screenshots to Document:
 
-### 🔍 Selected log sources I will simulate:
+#### 🍃Terminal showing MongoDB installed and running (sudo systemctl status mongod)
 
-Windows Sysmon logs for system activity monitoring
+#### 🍃Compass connected to local MongoDB instance
 
-Firewall logs to track allowed/denied traffic
+#### 🍃Python pymongo setup confirmation
 
-Threat intelligence feeds for IP/domain reputation
+## Phase 2 — Collect & Prepare Security Data 📥
 
-### 🧠 Sketched out SOC Data Lake architecture:
+What I Did:
+I downloaded sample datasets: Sysmon logs, firewall logs, Wazuh IDS alerts, and threat intel feeds. I cleaned and normalized the data (standardizing IP addresses, timestamps, and actions) and converted any CSV or text files into JSON. I organized the files into /data/sysmon/, /data/firewall/, /data/wazuh/, and /data/threat_intel/.
 
-Raw logs → Parsing/Normalization → MongoDB Collections → Queries & Dashboards
+Why:
+Clean, standardized data is essential for proper ingestion and analysis. Normalization ensures queries and correlation pipelines work without errors, just like in a production SOC.
 
-📸 Screenshot: Architecture sketch — purpose: document data flow plan
+📸 Screenshots to Document:
 
-##💡 What I Learned
+#### 🍃Folder structure on Ubuntu showing organized JSON files
 
-### 🏗️ Learned how to install and verify MongoDB and Python on Ubuntu.
+#### 🍃Sample JSON file open in VS Code or Jupyter Notebook
 
-### 🌐 Practiced using both Compass and mongosh for GUI and CLI database access.
+#### 🍃Example of cleaned and normalized log data
 
-### 🔄 Gained insight into SOC data flow and how logs are planned before ingestion.
+## Phase 3 — Design MongoDB Data Model & Ingest Logs 🗄️
 
-### 🚀 Built a stable foundation for starting log ingestion and normalization in Day 2.
+What I Did:
+I created a database soc_data with collections: sysmon_logs, firewall_logs, wazuh_alerts, and threat_intel. Using Python and pymongo, I wrote scripts to insert JSON logs into MongoDB. I verified that timestamps, IPs, and event types were correctly interpreted.
+
+Why:
+I focused on data modeling, making sure each collection supports SOC-style queries and enrichment. This is key for demonstrating that I can structure data intelligently for analysis.
+
+📸 Screenshots to Document:
+
+#### 🍃Compass view of soc_data collections with documents
+
+#### 🍃Python script inserting JSON data into MongoDB
+
+#### 🍃Sample document showing correct fields and data types
+
+## Phase 4 — Query, Correlate & Enrich 🔍
+
+What I Did:
+I wrote queries to find suspicious activity: failed logins, blocked IPs, and repeated alerts. Using $lookup, I correlated firewall IPs with threat intel feeds and enriched alerts with tags like malicious, suspicious, or benign. I also linked Wazuh alerts with Sysmon events for deeper analysis.
+
+Why:
+This phase simulates real SOC analysis, showing that my MongoDB model is ready for analytics and threat detection, not just storage.
+
+📸 Screenshots to Document:
+
+#### 🍃Example MongoDB queries in mongosh
+
+#### 🍃Compass showing correlated and enriched data
+
+#### 🍃Sample enriched documents with added fields
+
+## Phase 5 — Visualization & GitHub Documentation 📊
+
+What I Did:
+I created visualizations using MongoDB Charts and Python (matplotlib/pandas) showing trends: top blocked IPs, frequent alert types, and correlated threats. I wrote a GitHub README explaining architecture, goals, and instructions to reproduce the data model.
+
+Why:
+This phase demonstrates end-to-end capability: ingestion, enrichment, and actionable insights. Documenting everything professionally shows technical skill and communication — exactly what impresses executives.
+
+📸 Screenshots to Document:
+
+#### 🍃MongoDB Charts dashboard of alerts or IPs
+
+#### 🍃Python-generated plots showing trends
+
+#### 🍃README snippet with project structure and workflow
 
 
 🏁 Summary
