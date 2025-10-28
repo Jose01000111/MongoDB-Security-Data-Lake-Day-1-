@@ -5,7 +5,7 @@ Prepare my lab environment for the SOC Data Lake.
 Install and verify all necessary tools: MongoDB, Compass, mongosh, Python.
 Plan the data flow and architecture of my SOC Data Lake before ingesting any logs.
 
-##💻 What I Did
+## 💻 What I Did
 
 ### 🖥️ Installed MongoDB locally on Ubuntu and confirmed it was running.
 
