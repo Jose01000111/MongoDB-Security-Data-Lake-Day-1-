@@ -1,6 +1,5 @@
 # 🧠 MongoDB SOC Data Lake — 5-Phase Lab Project 
 
-Project Goal:
 #### I want to build a functional SOC data lake in MongoDB on Ubuntu that simulates how security analysts collect, store, correlate, and enrich log data. The goal is to design a professional data model demonstrating SOC workflows, threat intelligence, and data enrichment. This is meant to impress MongoDB leadership with Python-driven ingestion, enrichment, and correlation in a self-contained Ubuntu environment.
 
 Tools I’m Using:
