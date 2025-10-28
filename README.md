@@ -2,17 +2,17 @@
 
 #### I want to build a functional SOC data lake in MongoDB on Ubuntu that simulates how security analysts collect, store, correlate, and enrich log data. The goal is to design a professional data model demonstrating SOC workflows, threat intelligence, and data enrichment. This is meant to impress MongoDB leadership with Python-driven ingestion, enrichment, and correlation in a self-contained Ubuntu environment.
 
-## Tools I’m Using:
+#### Tools I’m Using:
 
-### 🟢 MongoDB Community Edition on Ubuntu
+#### 🟢 MongoDB Community Edition on Ubuntu
 
-### 🟢 MongoDB Compass
+#### 🟢 MongoDB Compass
 
-### 🐍 Python 3 with pymongo
+#### 🐍 Python 3 with pymongo
 
-### 📊 Sample security data from Wazuh, Sysmon, firewall logs, and threat intelligence feeds
+#### 📊 Sample security data from Wazuh, Sysmon, firewall logs, and threat intelligence feeds
 
-### 💻 Optional: VS Code or Jupyter Notebook
+#### 💻 Optional: VS Code or Jupyter Notebook
 
 ## Phase 1 — Environment Setup & Planning ⚙️
 
