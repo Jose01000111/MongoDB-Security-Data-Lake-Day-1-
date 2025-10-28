@@ -2,7 +2,7 @@
 
 #### I want to build a functional SOC data lake in MongoDB on Ubuntu that simulates how security analysts collect, store, correlate, and enrich log data. The goal is to design a professional data model demonstrating SOC workflows, threat intelligence, and data enrichment. This is meant to impress MongoDB leadership with Python-driven ingestion, enrichment, and correlation in a self-contained Ubuntu environment.
 
-Tools I’m Using:
+## Tools I’m Using:
 
 ### 🟢 MongoDB Community Edition on Ubuntu
 
@@ -22,7 +22,7 @@ I installed MongoDB Community Edition on Ubuntu using apt commands, set up Mongo
 ## Why:
 Setting up MongoDB locally ensures I understand installation, configuration, and connectivity on Ubuntu — critical for real-world deployments. Planning my architecture ensures that my data model will handle multiple security sources efficiently.
 
-📸 Screenshots to Document:
+### 📸 Deliverables :
 
 #### 🍃Terminal showing MongoDB installed and running (sudo systemctl status mongod)
 
@@ -38,7 +38,7 @@ I downloaded sample datasets: Sysmon logs, firewall logs, Wazuh IDS alerts, and 
 ## Why:
 Clean, standardized data is essential for proper ingestion and analysis. Normalization ensures queries and correlation pipelines work without errors, just like in a production SOC.
 
-📸 Screenshots to Document:
+### 📸 Deliverables :
 
 #### 🍃Folder structure on Ubuntu showing organized JSON files
 
@@ -54,7 +54,7 @@ I created a database soc_data with collections: sysmon_logs, firewall_logs, wazu
 ## Why:
 I focused on data modeling, making sure each collection supports SOC-style queries and enrichment. This is key for demonstrating that I can structure data intelligently for analysis.
 
-📸 Screenshots to Document:
+### 📸 Deliverables :
 
 #### 🍃Compass view of soc_data collections with documents
 
@@ -70,7 +70,7 @@ I wrote queries to find suspicious activity: failed logins, blocked IPs, and rep
 ## Why:
 This phase simulates real SOC analysis, showing that my MongoDB model is ready for analytics and threat detection, not just storage.
 
-📸 Screenshots to Document:
+### 📸 Deliverables :
 
 #### 🍃Example MongoDB queries in mongosh
 
@@ -86,7 +86,7 @@ I created visualizations using MongoDB Charts and Python (matplotlib/pandas) sho
 ## Why:
 This phase demonstrates end-to-end capability: ingestion, enrichment, and actionable insights. Documenting everything professionally shows technical skill and communication — exactly what impresses executives.
 
-📸 Screenshots to Document:
+### 📸 Deliverables :
 
 #### 🍃MongoDB Charts dashboard of alerts or IPs
 
