@@ -1,7 +1,9 @@
 # 🧠 MongoDB SOC Data Lake — Day 1: Environment Setup & Architecture Planning
 ## ⚙️ My Goals
 Prepare my lab environment for the SOC Data Lake.
+
 Install and verify all necessary tools: MongoDB, Compass, mongosh, Python.
+
 Plan the data flow and architecture of my SOC Data Lake before ingesting any logs.
 
 ## 💻 What I Did
