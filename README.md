@@ -12,8 +12,6 @@
 
 #### 📊 Sample security data from Wazuh, Sysmon, firewall logs, and threat intelligence feeds
 
-#### 💻 Optional: VS Code or Jupyter Notebook
-
 ## Phase 1 — Environment Setup & Planning ⚙️
 
 ## What I Did:
