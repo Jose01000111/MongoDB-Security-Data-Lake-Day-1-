@@ -1,98 +1,97 @@
-# 🧠 MongoDB SOC Data Lake — 5-Phase Lab Project 
+# 🧠 MongoDB SOC Data Lake — 5-Phase Lab with Wazuh
 
-#### I want to build a functional SOC data lake in MongoDB on Ubuntu that simulates how security analysts collect, store, correlate, and enrich log data. The goal is to design a professional data model demonstrating SOC workflows, threat intelligence, and data enrichment. This is meant to impress MongoDB leadership with Python-driven ingestion, enrichment, and correlation in a self-contained Ubuntu environment.
+## 🎯 Lab Overview
 
-#### Tools I’m Using:
+For this lab, I built a mini SOC data lake using **MongoDB Atlas** to simulate how security analysts collect, store, correlate, and visualize log data. The goal was to create a functional system capable of ingesting and enriching logs from multiple sources, including Windows Sysmon, firewall logs, threat intelligence feeds, and Wazuh alerts.
 
-#### 🟢 MongoDB Community Edition on Ubuntu
+## 🛠️ Technologies Used
 
-#### 🟢 MongoDB Compass
+- **MongoDB Atlas** — Cloud database platform used to host the SOC data lake and store log collections.
+- **MongoDB Compass** — GUI tool for exploring, querying, and verifying database contents.
+- **Python 3 + pymongo** — Scripting environment for automating log ingestion, enrichment, and queries.
+- **Wazuh Manager & Agent** — Security monitoring platform used to collect host and network logs in real time.
+- **MongoDB Charts** — Visualization tool to create dashboards and present SOC metrics and trends.
 
-#### 🐍 Python 3 with pymongo
+---
 
-#### 📊 Sample security data from Wazuh, Sysmon, firewall logs, and threat intelligence feeds
+## ⚙️ Phase 1 — Environment Setup & Planning
 
-## Phase 1 — Environment Setup & Planning ⚙️
+**Goal:** Prepare my MongoDB Atlas environment, install Compass, Python, and plan the SOC data flow.
 
-## What I Did:
-I installed MongoDB Community Edition on Ubuntu using apt commands, set up MongoDB to run as a service, and verified the connection with mongosh. I installed MongoDB Compass for GUI exploration and Python with pymongo for automation. I decided on my log sources: Sysmon logs for system activity, firewall logs for traffic, and Wazuh alerts for IDS data.
+**What I Did:**  
+I signed up for MongoDB Atlas and created a free-tier cluster, added my IP to the network whitelist, and created a database user with read/write access. I installed MongoDB Compass for GUI access and Python 3 with the pymongo package. I also installed the Wazuh manager on my local machine to collect security events and set up a Wazuh agent to simulate log collection from a host. I decided on my log sources including Sysmon logs, firewall logs, threat intelligence feeds, and Wazuh alerts. Finally, I sketched the architecture of the data lake showing the flow from raw logs to parsing, normalization, MongoDB collections, queries, and dashboards.
 
-## Why:
-Setting up MongoDB locally ensures I understand installation, configuration, and connectivity on Ubuntu — critical for real-world deployments. Planning my architecture ensures that my data model will handle multiple security sources efficiently.
+**Deliverables / Documentation:**  
+- Screenshot of MongoDB Atlas cluster overview  
+- Screenshot of Compass connected to Atlas  
+- Screenshot of Python confirming pymongo connection  
+- Screenshot of Wazuh manager dashboard showing agent connected
 
-### 📸 Deliverables :
+---
 
-#### 🍃Terminal showing MongoDB installed and running (sudo systemctl status mongod)
+## 📥 Phase 2 — Collect & Prepare Sample Data
 
-#### 🍃Compass connected to local MongoDB instance
+**Goal:** Gather sample logs, including Wazuh alerts, and normalize them for MongoDB ingestion.
 
-#### 🍃Python pymongo setup confirmation
+**What I Did:**  
+I downloaded sample datasets including Sysmon logs, firewall logs in CSV or JSON format, and threat intelligence feeds. I collected Wazuh alerts from my Wazuh agent. I standardized the key fields across all logs including IP addresses, timestamps, and action codes. I converted CSV and text files to JSON for MongoDB ingestion and organized all files into structured folders for each log source.
 
-## Phase 2 — Collect & Prepare Security Data 📥
+**Deliverables / Documentation:**  
+- Folder structure screenshot showing all logs  
+- Example JSON file of normalized data  
+- Screenshot of Wazuh alerts exported or visible in the dashboard
 
-## What I Did:
-I downloaded sample datasets: Sysmon logs, firewall logs, Wazuh IDS alerts, and threat intel feeds. I cleaned and normalized the data (standardizing IP addresses, timestamps, and actions) and converted any CSV or text files into JSON. I organized the files into /data/sysmon/, /data/firewall/, /data/wazuh/, and /data/threat_intel/.
+---
 
-## Why:
-Clean, standardized data is essential for proper ingestion and analysis. Normalization ensures queries and correlation pipelines work without errors, just like in a production SOC.
+## 🗄️ Phase 3 — Create Collections & Ingest Data
 
-### 📸 Deliverables :
+**Goal:** Create collections in MongoDB Atlas and load all sample logs including Wazuh alerts.
 
-#### 🍃Folder structure on Ubuntu showing organized JSON files
+**What I Did:**  
+I connected to MongoDB Atlas using Compass and mongosh, then created a database called `soc_data`. I created the collections for Sysmon logs, firewall logs, threat intelligence, and Wazuh alerts. I imported all JSON files into their respective collections and verified the imports by checking document counts and confirming field types for each collection.
 
-#### 🍃Sample JSON file open in VS Code or Jupyter Notebook
+**Deliverables / Documentation:**  
+- Screenshot of Compass showing collections and document counts  
+- Screenshot of Wazuh alerts visible in MongoDB after ingestion
 
-#### 🍃Example of cleaned and normalized log data
+---
 
-## Phase 3 — Design MongoDB Data Model & Ingest Logs 🗄️
+## 🔍 Phase 4 — Explore, Correlate & Enrich Data
 
-## What I Did:
-I created a database soc_data with collections: sysmon_logs, firewall_logs, wazuh_alerts, and threat_intel. Using Python and pymongo, I wrote scripts to insert JSON logs into MongoDB. I verified that timestamps, IPs, and event types were correctly interpreted.
+**Goal:** Query logs, identify patterns, correlate data, and enrich with threat intelligence context.
 
-## Why:
-I focused on data modeling, making sure each collection supports SOC-style queries and enrichment. This is key for demonstrating that I can structure data intelligently for analysis.
+**What I Did:**  
+I queried Sysmon logs to find failed logins, suspicious processes, and file modifications. I analyzed firewall logs to find blocked traffic, unusual ports, and repeated source IPs. I also reviewed Wazuh alerts for critical events and malware detections. I cross-referenced firewall IPs and Sysmon activity with threat intelligence using aggregation pipelines and tagged matching events with enrichment fields like malicious, suspicious, and benign. I used Compass filters to visually explore correlations and identify anomalies across all log sources.
 
-### 📸 Deliverables :
+**Deliverables / Documentation:**  
+- Screenshot of enriched data in Compass  
+- Screenshot of correlation query results including Wazuh alerts
 
-#### 🍃Compass view of soc_data collections with documents
+---
 
-#### 🍃Python script inserting JSON data into MongoDB
+## 📊 Phase 5 — Visualization, Automation & Reflection
 
-#### 🍃Sample document showing correct fields and data types
+**Goal:** Visualize insights, automate log ingestion, and reflect on SOC workflow.
 
-## Phase 4 — Query, Correlate & Enrich 🔍
+**What I Did:**  
+I created dashboards using MongoDB Charts and Python visualization libraries to highlight top blocked IPs, most frequent event types, and alerts correlated with threat intelligence and Wazuh events. I wrote a Python script to automatically ingest new logs into MongoDB collections and configured MongoDB Change Streams to detect and alert on new malicious entries. I reflected on the workflow, noting lessons learned and potential improvements for scaling this into a production-style SOC setup.
 
-## What I Did:
-I wrote queries to find suspicious activity: failed logins, blocked IPs, and repeated alerts. Using $lookup, I correlated firewall IPs with threat intel feeds and enriched alerts with tags like malicious, suspicious, or benign. I also linked Wazuh alerts with Sysmon events for deeper analysis.
+**Deliverables / Documentation:**  
+- Screenshot of dashboards summarizing SOC metrics  
+- Screenshot of Python automation script processing logs  
+- Screenshot of MongoDB Change Streams detecting new malicious events  
+- Summary notes on lessons learned and improvements
 
-## Why:
-This phase simulates real SOC analysis, showing that my MongoDB model is ready for analytics and threat detection, not just storage.
+---
 
-### 📸 Deliverables :
+## ✅ Lab Completed — Key Learnings
 
-#### 🍃Example MongoDB queries in mongosh
+- I learned how to set up a **MongoDB Atlas cluster** and connect it with MongoDB Compass for GUI exploration.  
+- I learned how to install and configure **Wazuh manager and agent** to collect security events and integrate them into a SOC data lake.  
+- I learned to **normalize and convert multiple log formats** (Sysmon, firewall, threat intelligence, Wazuh) into JSON for MongoDB ingestion.  
+- I learned to **create collections, ingest data, and verify document structure** in MongoDB Atlas.  
+- I practiced **querying, correlating, and enriching data** using MongoDB aggregation pipelines and Compass visual filters.  
+- I learned how to **visualize SOC data** using MongoDB Charts and Python visualization libraries.  
+- I learned to **automate log ingestion and alerting** using Python scripts and MongoDB Change Streams.  
+- I reflected on SOC workflows and identified potential improvements for a scalable, production-style SOC environment.  
 
-#### 🍃Compass showing correlated and enriched data
-
-#### 🍃Sample enriched documents with added fields
-
-## Phase 5 — Visualization & GitHub Documentation 📊
-
-## What I Did:
-I created visualizations using MongoDB Charts and Python (matplotlib/pandas) showing trends: top blocked IPs, frequent alert types, and correlated threats. I wrote a GitHub README explaining architecture, goals, and instructions to reproduce the data model.
-
-## Why:
-This phase demonstrates end-to-end capability: ingestion, enrichment, and actionable insights. Documenting everything professionally shows technical skill and communication — exactly what impresses executives.
-
-### 📸 Deliverables :
-
-#### 🍃MongoDB Charts dashboard of alerts or IPs
-
-#### 🍃Python-generated plots showing trends
-
-#### 🍃README snippet with project structure and workflow
-
-
-🏁 Summary
-
-Today I set up my Ubuntu SOC lab, installed all necessary tools, selected log sources, and planned the architecture of my MongoDB SOC Data Lake. The screenshots provide proof of setup and planning, giving me a clear foundation to start log ingestion and normalization in Day 2.
