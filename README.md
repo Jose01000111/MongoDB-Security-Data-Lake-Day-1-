@@ -4,6 +4,8 @@
 
 For this lab, I built a mini SOC data lake using **MongoDB Atlas** to simulate how security analysts collect, store, correlate, and visualize log data. The goal was to create a functional system capable of ingesting and enriching logs from multiple sources, including Windows Sysmon, firewall logs, threat intelligence feeds, and Wazuh alerts.
 
+<img width="649" height="547" alt="LB1FSFf" src="https://github.com/user-attachments/assets/efee6dbe-531d-4c92-b741-5a687414faff" />
+
 ## 🛠️ Technologies Used
 
 - **MongoDB Atlas** — Cloud database platform used to host the SOC data lake and store log collections.
@@ -22,10 +24,22 @@ For this lab, I built a mini SOC data lake using **MongoDB Atlas** to simulate h
 I signed up for MongoDB Atlas and created a free-tier cluster, added my IP to the network whitelist, and created a database user with read/write access. I installed MongoDB Compass for GUI access and Python 3 with the pymongo package. I also installed the Wazuh manager on my local machine to collect security events and set up a Wazuh agent to simulate log collection from a host. I decided on my log sources including Sysmon logs, firewall logs, threat intelligence feeds, and Wazuh alerts. Finally, I sketched the architecture of the data lake showing the flow from raw logs to parsing, normalization, MongoDB collections, queries, and dashboards.
 
 **Deliverables / Documentation:**  
-- Screenshot of MongoDB Atlas cluster overview  
-- Screenshot of Compass connected to Atlas  
-- Screenshot of Python confirming pymongo connection  
-- Screenshot of Wazuh manager dashboard showing agent connected
+
+🟢 Cluster overview
+
+   <img width="1377" height="295" alt="yZHVD65" src="https://github.com/user-attachments/assets/7fd04342-6aff-4b2c-b3e7-1b4c480017b5" />
+
+🟢 Network & user setup
+
+ <img width="529" height="222" alt="ESwDJOI" src="https://github.com/user-attachments/assets/98bfecd6-8dae-4dfe-9852-f9854c03948e" />
+   
+🟢 Compass connected
+
+   <img width="660" height="336" alt="rQohfES" src="https://github.com/user-attachments/assets/9950127d-756d-4cf4-8458-bf4dca6ddf51" />
+
+🟢 Python connection
+
+<img width="358" height="199" alt="8EeKZTC" src="https://github.com/user-attachments/assets/17f00bb5-8c11-458d-803d-c03a9fe0f23e" />
 
 ---
 
