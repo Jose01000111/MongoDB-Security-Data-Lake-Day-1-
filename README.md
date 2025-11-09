@@ -1,4 +1,4 @@
-# 💾 MongoDB Data Federation  ➡️ 📈 Splunk Integration  ➡️ Threat Modeling 🔐
+# 💾 MongoDB Data Federation-setup  ➡️ 📈 Splunk Integration  ➡️ Threat Modeling 🔐 
 
 ## In this lab, I set up a **MongoDB Atlas Data Federation environment** to simulate a SOC workflow. My goal was to create a foundation where I could collect, store, and analyze security log data from multiple sources. Later, I plan to pull logs from **Splunk** or other sources, enrich them, and explore the data using **Compass, Charts, and advanced queries** like vector search and NLP for threat detection.
 
