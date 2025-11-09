@@ -1,8 +1,6 @@
-# 🧠 My MongoDB Data Federation Lab for Splunk Integration & Threat Modeling
+# 💾 MongoDB Data Federation 🛠️ ➡️ 📈 Splunk Integration ⚡ ➡️ 🕵️‍♂️ Threat Modeling 🔐
 
-## Overview
-
-In this lab, I set up a **MongoDB Atlas Data Federation environment** to simulate a SOC workflow. My goal was to create a foundation where I could collect, store, and analyze security log data from multiple sources. Later, I plan to pull logs from **Splunk** or other sources, enrich them, and explore the data using **Compass, Charts, and advanced queries** like vector search and NLP for threat detection.
+## In this lab, I set up a **MongoDB Atlas Data Federation environment** to simulate a SOC workflow. My goal was to create a foundation where I could collect, store, and analyze security log data from multiple sources. Later, I plan to pull logs from **Splunk** or other sources, enrich them, and explore the data using **Compass, Charts, and advanced queries** like vector search and NLP for threat detection.
 
 ---
 
@@ -13,7 +11,7 @@ In this lab, I set up a **MongoDB Atlas Data Federation environment** to simulat
 - **Python 3 + pymongo** — for automating log ingestion, enrichment, and queries  
 - **MongoDB Charts** — for visualizing trends and SOC metrics  
 - **Atlas Data Federation** — to unify data across clusters and external sources  
-- **Vector search / NLP queries** — optional advanced queries for threat detection
+- **Vector search / NLP queries** — for advanced queries for threat detection
 
 ---
 
@@ -67,11 +65,40 @@ This setup forms the foundation for securely accessing and managing the cluster 
 **Python Connection Screenshot:**  
 ![Python Connection](https://github.com/user-attachments/assets/17f00bb5-8c11-458d-803d-c03a9fe0f23e)
 
+---
 
-```python
-from pymongo import MongoClient
+## 🚀 Next Steps
 
-client = MongoClient("YOUR_ATLAS_CONNECTION_STRING")
-db = client.test_database
-print(db.list_collection_names())
+After setting up the MongoDB Data Federation lab and verifying connectivity with Compass and Python, here’s what I plan to do next:
+
+1. **Ingest Logs from Splunk**
+   - Connect to Splunk or other log sources via Python or Atlas connectors.
+   - Pull SOC-relevant logs such as Windows Sysmon events, firewall logs, and IDS alerts.
+   - Normalize and store them in MongoDB collections.
+
+2. **Data Enrichment**
+   - Add metadata such as timestamps, source IP, geolocation, and threat intelligence tags.
+   - Prepare the data for advanced queries and analytics.
+
+3. **Advanced Querying**
+   - Explore **Vector Search** and **NLP queries** to detect anomalous or suspicious patterns.
+   - Experiment with aggregation pipelines to summarize activity.
+
+4. **Visualization and Dashboards**
+   - Use **MongoDB Charts** to create dashboards for SOC metrics.
+   - Identify trends, spikes, and potential incidents visually.
+
+5. **Threat Modeling & Analysis**
+   - Simulate attack scenarios using the enriched dataset.
+   - Evaluate alerting strategies and log correlation for SOC exercises.
+
+6. **Automation & Scaling**
+   - Automate ingestion and enrichment using Python scripts.
+   - Consider adding multiple clusters or external sources for Data Federation testing.
+
+7. **Documentation & Sharing**
+   - Keep clear documentation of architecture, queries, and dashboards.
+   - Share insights and lessons learned for future SOC labs or portfolio projects.
+
+
 
