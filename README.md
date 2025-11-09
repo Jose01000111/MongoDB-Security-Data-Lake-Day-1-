@@ -54,9 +54,7 @@ This setup forms the foundation for securely accessing and managing the cluster 
 <img width="660" height="336" alt="goKPy6F" src="https://github.com/user-attachments/assets/ab76e23d-777d-4bbd-add0-9378214ce17e" />
 
 
-**Compass Connected:**  
-
-![Compass Connected](https://github.com/user-attachments/assets/9950127d-756d-4cf4-8458-bf4dca6ddf51)
+**Compass Connected:** 
 
 ---
 
