@@ -41,8 +41,6 @@ For my MongoDB Atlas cluster, I configured the **IP Access List** to allow conne
 - I also created a **database user** with read/write permissions to manage the collections and enable Python and Compass connections.
 
 
-<img width="529" height="222" alt="C7BNrTV" src="https://github.com/user-attachments/assets/fb6f8413-cd1e-467e-9e97-2a8fb51ea85b" />
-
 This setup forms the foundation for securely accessing and managing the cluster from my local environment and scripts.
 
 
