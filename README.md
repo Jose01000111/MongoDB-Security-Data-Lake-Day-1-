@@ -1,112 +1,77 @@
-# 🧠 MongoDB SOC Data Lake — 5-Phase Lab with Wazuh
+# 🧠 My MongoDB Data Federation Lab for Splunk Integration & Threat Modeling
 
-## 🎯 Lab Overview
+## Overview
 
-For this lab, I built a mini SOC data lake using **MongoDB Atlas** to simulate how security analysts collect, store, correlate, and visualize log data. The goal was to create a functional system capable of ingesting and enriching logs from multiple sources, including Windows Sysmon, firewall logs, AND threat intelligence feeds.
-
-<img width="649" height="547" alt="LB1FSFf" src="https://github.com/user-attachments/assets/efee6dbe-531d-4c92-b741-5a687414faff" />
-
-## 🛠️ Technologies Used
-
-- **MongoDB Atlas** — Cloud database platform used to host the SOC data lake and store log collections.
-- **MongoDB Compass** — GUI tool for exploring, querying, and verifying database contents.
-- **Python 3 + pymongo** — Scripting environment for automating log ingestion, enrichment, and queries.
-- **MongoDB Charts** — Visualization tool to create dashboards and present SOC metrics and trends.
+In this lab, I set up a **MongoDB Atlas Data Federation environment** to simulate a SOC workflow. My goal was to create a foundation where I could collect, store, and analyze security log data from multiple sources. Later, I plan to pull logs from **Splunk** or other sources, enrich them, and explore the data using **Compass, Charts, and advanced queries** like vector search and NLP for threat detection.
 
 ---
 
-## ⚙️ Phase 1 — Environment Setup & Planning
+## Technologies I Used
 
-**Goal:** Prepare my MongoDB Atlas environment, install Compass, Python, and plan the SOC data flow.
-
-**What I Did:**  
-I signed up for MongoDB Atlas and created a free-tier cluster, added my IP to the network whitelist, and created a database user with read/write access. I installed MongoDB Compass for GUI access and Python 3 with the pymongo package. I decided on my log sources, including Sysmon logs, firewall logs, and threat intelligence feeds. Finally, I sketched the architecture of the data lake showing the flow from raw logs to parsing, normalization, MongoDB collections, queries, and dashboards.
-
-**Deliverables / Documentation:**  
-
-🟢 Cluster overview
-
-   <img width="1377" height="295" alt="yZHVD65" src="https://github.com/user-attachments/assets/7fd04342-6aff-4b2c-b3e7-1b4c480017b5" />
-
-   ---
-
-🟢 Network & user setup
-
- <img width="529" height="222" alt="ESwDJOI" src="https://github.com/user-attachments/assets/98bfecd6-8dae-4dfe-9852-f9854c03948e" />
-
- ---
-   
-🟢 Compass connected
-
-   <img width="660" height="336" alt="rQohfES" src="https://github.com/user-attachments/assets/9950127d-756d-4cf4-8458-bf4dca6ddf51" />
-
-   ---
-
-🟢 Python connection
-
-<img width="358" height="199" alt="8EeKZTC" src="https://github.com/user-attachments/assets/17f00bb5-8c11-458d-803d-c03a9fe0f23e" />
+- **MongoDB Atlas** — to host the SOC data and Data Federation  
+- **MongoDB Compass** — to explore, query, and validate collections  
+- **Python 3 + pymongo** — for automating log ingestion, enrichment, and queries  
+- **MongoDB Charts** — for visualizing trends and SOC metrics  
+- **Atlas Data Federation** — to unify data across clusters and external sources  
+- **Vector search / NLP queries** — optional advanced queries for threat detection
 
 ---
 
-## 📥 Phase 2 — Collect & Prepare Sample Data
+## Setting Up My Environment
 
-**Goal:** Gather sample logs and normalize them for MongoDB ingestion.
+**Goal:** I wanted to prepare MongoDB Atlas for SOC use, verify connectivity, and lay the groundwork for pulling data from Splunk later.
 
-**What I Did:**  
-I downloaded sample datasets including Sysmon logs, firewall logs in CSV or JSON format, and threat intelligence feeds. I standardized the key fields across all logs including IP addresses, timestamps, and action codes. I converted CSV and text files to JSON for MongoDB ingestion and organized all files into structured folders for each log source.
+### MongoDB Atlas Cluster
 
-**Deliverables / Documentation:**  
-- Folder structure screenshot showing all logs  
-- Example JSON file of normalized data  
+- I created a free-tier cluster.  
+- Added my IP to the **network access whitelist**.  
+- Created a **database user** with read/write permissions.  
+- Saved my **connection string** for Compass and Python.
 
----
+**Cluster Overview:**  
 
-## 🗄️ Phase 3 — Create Collections & Ingest Data
+![Cluster Overview](https://github.com/user-attachments/assets/7fd04342-6aff-4b2c-b741-5a687414017b5)
 
-**Goal:** Create collections in MongoDB Atlas and load all sample logs.
+## Network & User Setup
 
-**What I Did:**  
-I connected to MongoDB Atlas using Compass and mongosh, then created a database called `soc_data`. I created the collections for Sysmon logs, firewall logs, and threat intelligence. I imported all JSON files into their respective collections and verified the imports by checking document counts and confirming field types for each collection.
+For my MongoDB Atlas cluster, I configured the **IP Access List** to allow connections only from my current IP address.  
 
-**Deliverables / Documentation:**  
-- Screenshot of Compass showing collections and document counts  
+<img width="529" height="222" alt="ESwDJOI" src="https://github.com/user-attachments/assets/98bfecd6-8dae-4dfe-9852-f9854c03948e" />
 
----
+- **Allowed IP Address:** 108.195.24.228/32 (this includes my current IP).  
+- This ensures secure access to the cluster by restricting it to known addresses.  
+- I also created a **database user** with read/write permissions to manage the collections and enable Python and Compass connections.
 
-## 🔍 Phase 4 — Explore, Correlate & Enrich Data
+This setup forms the foundation for securely accessing and managing the cluster from my local environment and scripts.
 
-**Goal:** Query logs, identify patterns, correlate data, and enrich with threat intelligence context.
-
-**What I Did:**  
-I queried Sysmon logs to find failed logins, suspicious processes, and file modifications. I analyzed firewall logs to find blocked traffic, unusual ports, and repeated source IPs. I cross-referenced firewall IPs and Sysmon activity with threat intelligence using aggregation pipelines and tagged matching events with enrichment fields like malicious, suspicious, and benign. I used Compass filters to visually explore correlations and identify anomalies across all log sources.
-
-**Deliverables / Documentation:**  
-- Screenshot of enriched data in Compass  
-- Screenshot of correlation query results  
 
 ---
 
-## 📊 Phase 5 — Visualization, Automation & Reflection
+### MongoDB Compass
 
-**Goal:** Visualize insights, automate log ingestion, and reflect on SOC workflow.
+- I downloaded Compass and connected to my Atlas cluster.  
+- Verified that I could see collections and explore the database.
 
-**What I Did:**  
-I created dashboards using MongoDB Charts and Python visualization libraries to highlight top blocked IPs and most frequent event types. I wrote a Python script to automatically ingest new logs into MongoDB collections and configured MongoDB Change Streams to detect and alert on new malicious entries. I reflected on the workflow, noting lessons learned and potential improvements for scaling this into a production-style SOC setup.
+**Compass Connected:**  
 
-**Deliverables / Documentation:**  
-- Screenshot of dashboards summarizing metrics  
-- Screenshot of Python automation script processing logs  
-- Screenshot of MongoDB Change Streams detecting new malicious events  
-- Summary notes on lessons learned and improvements  
+![Compass Connected](https://github.com/user-attachments/assets/9950127d-756d-4cf4-8458-bf4dca6ddf51)
 
 ---
 
-## ✅ Lab Completed — Key Learnings
+### Python Setup
 
-- I learned how to set up a **MongoDB Atlas cluster** and connect it with MongoDB Compass for GUI exploration.  
-- I learned to **normalize and convert multiple log formats** (Sysmon, firewall, threat intelligence) into JSON for MongoDB ingestion.  
-- I learned to **create collections, ingest data, and verify document structure** in MongoDB Atlas.  
-- I practiced **querying, correlating, and enriching data** using MongoDB aggregation pipelines and Compass visual filters.  
-- I learned how to **visualize data** using MongoDB Charts and Python visualization libraries.  
-- I learned to **automate log ingestion and alerting** using Python scripts and MongoDB Change Streams.  
-- I reflected on workflows and identified potential improvements for a scalable, production-style SOC environment.
+- Installed Python 3 and the `pymongo` package.  
+- Verified connection to Atlas with this test script:
+## Python Connection Test
+
+**Python Connection Screenshot:**  
+![Python Connection](https://github.com/user-attachments/assets/17f00bb5-8c11-458d-803d-c03a9fe0f23e)
+
+
+```python
+from pymongo import MongoClient
+
+client = MongoClient("YOUR_ATLAS_CONNECTION_STRING")
+db = client.test_database
+print(db.list_collection_names())
+
