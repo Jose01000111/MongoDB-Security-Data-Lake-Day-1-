@@ -2,6 +2,8 @@
 
 ## In this lab, I set up a **MongoDB Atlas Data Federation environment** to simulate a SOC workflow. My goal was to create a foundation where I could collect, store, and analyze security log data from multiple sources. Later, I plan to pull logs from **Splunk** or other sources, enrich them, and explore the data using **Compass, Charts, and advanced queries** like vector search and NLP for threat detection.
 
+<img width="649" height="547" alt="Yd25KtT" src="https://github.com/user-attachments/assets/1906a4ef-7e1f-4864-9b0d-e65f34ebe037" />
+
 ---
 
 ## Technologies I Used
@@ -26,9 +28,7 @@
 - Created a **database user** with read/write permissions.  
 - Saved my **connection string** for Compass and Python.
 
-**Cluster Overview:**  
-
-![Cluster Overview](https://github.com/user-attachments/assets/7fd04342-6aff-4b2c-b741-5a687414017b5)
+<img width="1377" height="295" alt="Sx5yn9Y" src="https://github.com/user-attachments/assets/adf99a73-34bb-497f-8e21-7390224491f5" />
 
 ## Network & User Setup
 
@@ -40,6 +40,9 @@ For my MongoDB Atlas cluster, I configured the **IP Access List** to allow conne
 - This ensures secure access to the cluster by restricting it to known addresses.  
 - I also created a **database user** with read/write permissions to manage the collections and enable Python and Compass connections.
 
+
+<img width="529" height="222" alt="C7BNrTV" src="https://github.com/user-attachments/assets/fb6f8413-cd1e-467e-9e97-2a8fb51ea85b" />
+
 This setup forms the foundation for securely accessing and managing the cluster from my local environment and scripts.
 
 
@@ -49,6 +52,9 @@ This setup forms the foundation for securely accessing and managing the cluster 
 
 - I downloaded Compass and connected to my Atlas cluster.  
 - Verified that I could see collections and explore the database.
+
+<img width="660" height="336" alt="goKPy6F" src="https://github.com/user-attachments/assets/ab76e23d-777d-4bbd-add0-9378214ce17e" />
+
 
 **Compass Connected:**  
 
